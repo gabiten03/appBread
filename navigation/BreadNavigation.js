@@ -19,9 +19,6 @@ function BreadNavigation() {
         <NavigationContainer
             initialRouteName="Home"
         >
-
-
-
             <Stack.Navigator initialRouteName='Home'
                 screenOptions={
                     {
@@ -31,8 +28,6 @@ function BreadNavigation() {
                         headerTintColor: '#fff',
                         headerTitleStyle: {
                             fontWeight: 'bold',
-                            fontfamily: 'Roboto',
-
                         },
                         headerTitleAlign: 'center',
                     }
@@ -40,10 +35,25 @@ function BreadNavigation() {
                 } >
 
 
-                <Stack.Screen name="Home" component={CategoryScreen}
+                <Stack.Screen
+                    name="Home"
+                    component={CategoryScreen}
+                    options={{
+
+                        title: 'Nuestra Panaderia'
+                    }}
+
                 />
-                <Stack.Screen name="Detail" component={BreadDetailScreen} />
-                <Stack.Screen name="CategoryBread" component={CategoryBreadScreen}
+                <Stack.Screen
+                    name="Detalle"
+                    component={BreadDetailScreen}
+                    options={({ route }) => ({ title: route.params.name })}
+
+                />
+                <Stack.Screen
+                    name="Categorias"
+                    component={CategoryBreadScreen}
+                    options={({ route }) => ({ title: route.params.name })}
                 />
 
             </Stack.Navigator>

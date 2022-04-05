@@ -1,10 +1,22 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-const BreadDetailScreen = () => {
+const BreadDetailScreen = ({ route }) => {
+    const bread = route.params.bread
+
     return (
-        <View style={styles.screen}><Text>
-            Detalles</Text></View>
+        <View style={styles.screen}>
+            <View>
+                <Text style={styles.title}>{bread.name}</Text>
+            </View>
+            <View>
+                <Text style={styles.description}>{bread.description}</Text>
+            </View>
+            <View>
+                <Text style={styles.price}>{bread.price}</Text>
+            </View>
+
+        </View>
     )
 }
 
@@ -14,6 +26,21 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
 
+    },
+    title: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginVertical: 10
+    },
+    description: {
+        fontSize: 15,
+        marginVertical: 10
+    },
+    price: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginVertical: 10
     }
+
 })
 export default BreadDetailScreen
