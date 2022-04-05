@@ -16,7 +16,7 @@ const BreadItem = ({ item, onSelectBread }) => {
 
     return (
         <View style={styles.BreadItem} >
-            <TouchableCmp
+            <TouchableOpacity
                 onPress={() => onSelectBread(item)}>
 
                 <View style={styles.breadRow}>
@@ -25,7 +25,7 @@ const BreadItem = ({ item, onSelectBread }) => {
                 <View style={styles.price}>
                     <Text >{item.price}</Text>
                 </View>
-            </TouchableCmp>
+            </TouchableOpacity>
         </View >
     )
 }

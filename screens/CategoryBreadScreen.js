@@ -14,7 +14,9 @@ const CategoryBreadScreen = ({ navigation, route }) => {
         navigation.navigate("Detalle", { bread, name: bread.name })
     }
 
-    const renderItem = (itemData) => <BreadItem item={itemData.item} onSelectBread={handlerSelect} />
+    const renderItem = (itemData) =>
+
+        <BreadItem item={itemData.item} onSelectBread={handlerSelect} />
 
     return (
         <View style={styles.screen} >
