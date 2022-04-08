@@ -1,8 +1,10 @@
 import React from 'react'
+import { useSelector, connect } from 'react-redux'
 import { View, Text, StyleSheet } from 'react-native'
 
-const BreadDetailScreen = ({ route }) => {
-    const bread = route.params.bread
+const BreadDetailScreen = () => {
+
+    const bread = useSelector(state => state.breads.selected)
 
     return (
         <View style={styles.screen}>
@@ -43,4 +45,4 @@ const styles = StyleSheet.create({
     }
 
 })
-export default BreadDetailScreen
+export default connect()(BreadDetailScreen)

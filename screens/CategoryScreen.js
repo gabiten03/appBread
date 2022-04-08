@@ -1,16 +1,18 @@
 import React from 'react'
 import { FlatList, StyleSheet } from 'react-native'
+import { useSelector, useDispatch, connect } from 'react-redux'
 
-import { CATEGORIES } from '../data/categorias'
 import CategoryGridTile from '../components/CategoryGridTile'
+import { selectCategory } from '../store/actions/category.actions'
 
 const CategoryScreen = ({ navigation }) => {
 
+    const categories = useSelector(state => state.categories.categories)
+    const dispatch = useDispatch()
 
     const handlerSelectCategory = (item) => {
-        navigation.navigate('Categorias', {
-            categoryID: item.id, name: item.title
-        })
+        dispatch(selectCategory(item.id))
+        navigation.push("Categorias", { name: item.title })
     }
     const renderGridItem = itemData =>
         <CategoryGridTile item={itemData.item} onSelected={handlerSelectCategory} />
@@ -18,7 +20,7 @@ const CategoryScreen = ({ navigation }) => {
 
     return (
         <FlatList
-            data={CATEGORIES}
+            data={categories}
             keyExtractor={(item) => item.id}
             renderItem={renderGridItem}
             numColumns={2}
@@ -27,7 +29,7 @@ const CategoryScreen = ({ navigation }) => {
 
 
 }
-export default CategoryScreen;
+
 
 const styles = StyleSheet.create({
     screen: {
@@ -38,3 +40,4 @@ const styles = StyleSheet.create({
     }
 })
 
+export default connect()(CategoryScreen);
