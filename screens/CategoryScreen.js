@@ -1,8 +1,11 @@
 import React from 'react'
-import { FlatList, StyleSheet } from 'react-native'
+import { FlatList, StyleSheet, View } from 'react-native'
 import { useSelector, useDispatch, connect } from 'react-redux'
 
 import CategoryGridTile from '../components/CategoryGridTile'
+
+import ShowCart from '../components/ShowCart'
+
 import { selectCategory } from '../store/actions/category.actions'
 
 const CategoryScreen = ({ navigation }) => {
@@ -19,12 +22,16 @@ const CategoryScreen = ({ navigation }) => {
 
 
     return (
-        <FlatList
-            data={categories}
-            keyExtractor={(item) => item.id}
-            renderItem={renderGridItem}
-            numColumns={2}
-        />
+        <View style={styles.screen}>
+
+            <FlatList
+                data={categories}
+                keyExtractor={(item) => item.id}
+                renderItem={renderGridItem}
+                numColumns={2}
+            />
+            <ShowCart navigation={navigation} />
+        </View>
     )
 
 
@@ -34,8 +41,7 @@ const CategoryScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+
 
     }
 })

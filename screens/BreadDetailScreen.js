@@ -1,10 +1,20 @@
 import React from 'react'
-import { useSelector, connect } from 'react-redux'
-import { View, Text, StyleSheet } from 'react-native'
+import { useSelector, connect, useDispatch } from 'react-redux'
+import { View, Text, StyleSheet, Button } from 'react-native'
+import { addItem } from '../store/actions/cart.actions'
+import ShowCart from '../components/ShowCart'
 
-const BreadDetailScreen = () => {
+
+const BreadDetailScreen = ({ navigation }) => {
 
     const bread = useSelector(state => state.breads.selected)
+    const dispatch = useDispatch()
+
+    const handleAddItem = () => {
+        dispatch(addItem(bread))
+
+    }
+
 
     return (
         <View style={styles.screen}>
@@ -18,6 +28,10 @@ const BreadDetailScreen = () => {
                 <Text style={styles.price}>{bread.price}</Text>
             </View>
 
+            <View style={styles.cart}>
+                <Button title="Agregar al carrito" onPress={handleAddItem} />
+            </View>
+            <ShowCart navigation={navigation} />
         </View>
     )
 }
@@ -41,6 +55,9 @@ const styles = StyleSheet.create({
     price: {
         fontSize: 20,
         fontWeight: 'bold',
+        marginVertical: 10
+    },
+    cart: {
         marginVertical: 10
     }
 

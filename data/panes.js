@@ -5,7 +5,7 @@ export const BREADS = [
         name: 'Baguete',
         description: 'Baguete de trigo',
         weight: '350 gr',
-        price: '$1.50',
+        price: 1.50
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ export const BREADS = [
         name: 'Ciabatta',
         description: 'Pan Ciabatta',
         weight: '800  gr',
-        price: '$2.50',
+        price: 2.50,
     },
     {
         id: 3,
@@ -21,7 +21,7 @@ export const BREADS = [
         name: 'Pan Hamburguesa Vegano',
         description: 'Pan de hamburguesa vegano',
         weight: '500 gr',
-        price: '$1.50',
+        price: 1.50,
     },
     {
         id: 4,
@@ -29,7 +29,7 @@ export const BREADS = [
         name: 'Pan de trigo integral',
         description: 'Pan de trigo integral',
         weight: '500 gr',
-        price: '$1.50',
+        price: 1.50,
     },
     {
         id: 5,
@@ -37,7 +37,7 @@ export const BREADS = [
         name: 'Pan de Molde integral',
         description: 'Pan de molde integral',
         weight: '500 gr',
-        price: '$1.50',
+        price: 1.50,
     },
 
 ]
